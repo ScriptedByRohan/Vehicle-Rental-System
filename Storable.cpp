@@ -17,7 +17,10 @@ public:
     Storable(long recordId){this->recordId = recordId;};
     long getRecordId() const{ return this->recordId;};
 
-    virtual void setDataFrom (Storable)
+    virtual void setDataFrom (Storable * s) = 0;
 
+    template<class T>friend class Table;
 
+    friend class Database;
 };
+#endif
